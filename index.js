@@ -95,3 +95,8 @@ function kittenMessage(recipientId, text) {
     return false;
     
 };
+if (event.message && event.message.text) {
+    if (!kittenMessage(event.sender.id, event.message.text)) {
+        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+    }
+}
