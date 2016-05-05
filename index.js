@@ -27,7 +27,6 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-        // kittenMessage(event.sender.id,"aadesh");
         }
     }
     res.sendStatus(200);
@@ -51,4 +50,3 @@ function sendMessage(recipientId, message) {
         }
     });
 };
-
