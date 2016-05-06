@@ -53,7 +53,7 @@ app.post('/webhook', function (req, res) {
                     processMessage(sender, text);
                 }
             }
-    
+    }
     }
     res.sendStatus(200);
 });
