@@ -7,6 +7,10 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
+ bodyParser = require('body-parser'),
+    port = process.env.PORT || 8888,
+    FACEBOOK_PAGE_ACCESS_TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN,
+    BART_API_BASE = 'http://bart.crudworks.org/api';
 
 // Server frontpage
 app.get('/', function (req, res) {
