@@ -1,0 +1,45 @@
+{
+ 
+ [
+    {
+      "code": "N1sZfO1fWqg",
+      "name": "Timberman",
+      "gameUrl": "https://games.gamezop.io/N1sZfO1fWqg/index.html",
+      "playCount": 1695,
+      "isPortrait": true,
+      "launcher": "https://static.gamezop.io/thumbs/N1sZfO1fWqg.png",
+      "zip": "https://games.gamezop.io/zips/N1sZfO1fWqg.zip",
+      "path": "/N1sZfO1fWqg/index.html"
+    },
+    {
+      "code": "NyM_JGWcx",
+      "name": "2048",
+      "gameUrl": "https://games.gamezop.io/NyM_JGWcx/index.html",
+      "playCount": 1602,
+      "isPortrait": true,
+      "launcher": "https://static.gamezop.io/thumbs/NyM_JGWcx.png",
+      "zip": "https://games.gamezop.io/zips/NyM_JGWcx.zip",
+      "path": "/NyM_JGWcx/index.html"
+    },
+    {
+      "code": "EJoezu1MWqg",
+      "name": "The Tower",
+      "gameUrl": "https://games.gamezop.io/EJoezu1MWqg/index.html",
+      "playCount": 905,
+      "isPortrait": true,
+      "launcher": "https://static.gamezop.io/thumbs/EJoezu1MWqg.png",
+      "zip": "https://games.gamezop.io/zips/EJoezu1MWqg.zip",
+      "path": "/EJoezu1MWqg/index.html"
+    },
+    {
+      "code": "E1szd1fW9e",
+      "name": "Stick Pin",
+      "gameUrl": "https://games.gamezop.io/E1szd1fW9e/index.html",
+      "playCount": 897,
+      "isPortrait": true,
+      "launcher": "https://static.gamezop.io/thumbs/E1szd1fW9e.png",
+      "zip": "https://games.gamezop.io/zips/E1szd1fW9e.zip",
+      "path": "/E1szd1fW9e/index.html"
+    }
+  ]
+}
