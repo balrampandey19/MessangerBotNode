@@ -1,68 +1,21 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
- port = process.env.PORT || 8888,
+"use strict";
+
+/* bartfbchatbot.js */
+
+/*
+ * TODO:
+ *
+ * - Add some better parsing with http://wit.ai
+ */
+
+var express = require('express'),
+    httpRequest = require('request'),
+    app = express(),
+    http = require('http'),
+    bodyParser = require('body-parser'),
+    port = process.env.PORT || 8888,
     FACEBOOK_PAGE_ACCESS_TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN,
     BART_API_BASE = 'http://bart.crudworks.org/api';
-var app = express();
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.listen((process.env.PORT || 3000));
-
-// Server frontpage
-app.get('/', function (req, res) {
-    res.send('This is TestBot Server');
-});
-
-// Facebook Webhook
-app.get('/webhook', function (req, res) {
-    if (req.query['hub.verify_token'] === 'testbot_verify_token') {
-        res.send(req.query['hub.challenge']);
-    } else {
-        res.send('Invalid verify token');
-    }
-});
-
-// handler receiving messages
-app.post('/webhook/', function (req, res) {
-    var messagingEvents, 
-        i = 0,
-        event,
-        sender,
-        text,
-        attachment;
-
-    if (req.body && req.body.entry) {
-        messagingEvents = req.body.entry[0].messaging;
-
-        for (; i < messagingEvents.length; i++) {
-            event = messagingEvents[i];
-            console.log('^^^^^^^^^^^^^^^^^^^^^^^^');
-            console.log(JSON.stringify(event));
-            console.log('^^^^^^^^^^^^^^^^^^^^^^^^');
-            sender = event.sender.id;
-            if (event.message && event.message.attachments && event.message.attachments.length > 0) {
-                attachment = event.message.attachments[0];
-
-                if (attachment.type === 'location') {
-                    processLocation(sender, attachment.payload.coordinates);
-                }
-            } else if (event.postback && event.postback.payload) {
-                if (event.postback.payload.indexOf('departures') > -1) {
-                    processMessage(sender, event.postback.payload);
-                }
-            } else {
-                if (event.message && event.message.text) {
-                    text = event.message.text;
-                    processMessage(sender, text);
-                }
-            }
-        }
-    }
-
-    res.sendStatus(200);
-});
 
 function processMessage(sender, reqText) {
     var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\ndepartures <code>\n\nOr send your location for nearest station.',
@@ -364,3 +317,53 @@ app.use(bodyParser.urlencoded({
 app.get('/', function(req, res) {
     res.send('BART Facebook Chatbot.');
 });
+
+app.get('/webhook/', function (req, res) {
+    if (req.query['hub.verify_token'] === 'testbot_verify_token') {
+        res.send(req.query['hub.challenge']);
+    }
+    res.send('Error, wrong validation token');
+});
+
+app.post('/webhook/', function (req, res) {
+    var messagingEvents, 
+        i = 0,
+        event,
+        sender,
+        text,
+        attachment;
+
+    if (req.body && req.body.entry) {
+        messagingEvents = req.body.entry[0].messaging;
+
+        for (; i < messagingEvents.length; i++) {
+            event = messagingEvents[i];
+            console.log('^^^^^^^^^^^^^^^^^^^^^^^^');
+            console.log(JSON.stringify(event));
+            console.log('^^^^^^^^^^^^^^^^^^^^^^^^');
+            sender = event.sender.id;
+            if (event.message && event.message.attachments && event.message.attachments.length > 0) {
+                attachment = event.message.attachments[0];
+
+                if (attachment.type === 'location') {
+                    processLocation(sender, attachment.payload.coordinates);
+                }
+            } else if (event.postback && event.postback.payload) {
+                if (event.postback.payload.indexOf('departures') > -1) {
+                    processMessage(sender, event.postback.payload);
+                }
+            } else {
+                if (event.message && event.message.text) {
+                    text = event.message.text;
+                    processMessage(sender, text);
+                }
+            }
+        }
+    }
+
+    res.sendStatus(200);
+});
+
+http.createServer(app).listen(port);
+console.log('bartcfchatbot listening on port ' + port);
+module.exports = app;
