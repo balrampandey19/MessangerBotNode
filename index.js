@@ -84,7 +84,8 @@ function kittenMessage(recipientId, text) {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            },{
+                            }]
+                        },{
                             "title": "Kitten",
                             "subtitle": "Cute kitten picture",
                             "image_url": imageUrl ,
@@ -96,7 +97,21 @@ function kittenMessage(recipientId, text) {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            },{
+                            }]
+                        },{
+                            "title": "Kitten",
+                            "subtitle": "Cute kitten picture",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show kitten"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this",
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }]
+                        },{
                             "title": "Kitten",
                             "subtitle": "Cute kitten picture",
                             "image_url": imageUrl ,
