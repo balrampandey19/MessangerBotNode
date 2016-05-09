@@ -53,9 +53,15 @@ var randomNumber = Math.floor(Math.random()*message.length);
          sendMessage(recipientId, {text:message[randomNumber]});
      }
      else
-     if (text.indexOf('gamezop') > -1 || text.indexOf('game') > -1 || text.indexOf('casual') > -1) {
+     if (text.indexOf('gamezop') > -1 || text.indexOf('casual') > -1) {
          gamezopMessage(recipientId, {text:message});
      }
+     else
+     
+        if (text.indexOf('games') > -1 || text.indexOf('recommendation') > -1 || text.indexOf('recommended') > -1 || text.indexOf('suggested') > -1 || text.indexOf('game') > -1) {
+         games(recipientId, {text:message});
+     }
+     
      else {
         // Unknown command
         console.log(respText);
@@ -85,6 +91,74 @@ function gamezopMessage(recipientId,text)
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }]
+                        }]
+                    }
+                }
+            };
+              sendMessage(recipientId, message);
+            
+            return true;
+}
+function games(recipientId,text)
+{
+     var linkUrl="https://play.google.com/store/apps/details?id=co.gamezop&hl=en";
+      message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "Timberman",
+                            "subtitle": "Best Casual Games",
+                            "image_url": "https://static.gamezop.io/N1sZfO1fWqg/cover.jpg" ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": "https://games.gamezop.io/N1sZfO1fWqg/index.html",
+                                "title": "Play"
+                                }, {
+                                "type": "web_url",
+                               "url": linkUrl,
+                                 "title": "Download app",
+                            }]
+                        },{
+                            "title": "2048",
+                            "subtitle": "Best Casual Games",
+                            "image_url": "https://static.gamezop.io/NyM_JGWcx/cover.jpg" ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": "https://games.gamezop.io/NyM_JGWcx/index.html",
+                                "title": "Play"
+                                }, {
+                                "type": "web_url",
+                               "url": linkUrl,
+                                 "title": "Download app",
+                            }]
+                        },{
+                            "title": "The Tower",
+                            "subtitle": "Best Casual Games",
+                            "image_url": "https://static.gamezop.io/EJoezu1MWqg/cover.jpg" ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": "https://games.gamezop.io/EJoezu1MWqg/index.html",
+                                "title": "Play"
+                                }, {
+                                "type": "web_url",
+                               "url": linkUrl,
+                                 "title": "Download app",
+                            }]
+                        },{
+                            "title": "Stick Pin",
+                            "subtitle": "Best Casual Games",
+                            "image_url": "https://static.gamezop.io/E1szd1fW9e/cover.jpg" ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": "https://games.gamezop.io/E1szd1fW9e/index.html",
+                                "title": "Play"
+                                }, {
+                                "type": "web_url",
+                               "url": linkUrl,
+                                 "title": "Download app",
                             }]
                         }]
                     }
