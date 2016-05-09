@@ -38,13 +38,14 @@ app.post('/webhook', function (req, res) {
 });
 function processMessage(recipientId,message)
 {
+    var helpText="hi Gamezop has the world’s best casual games within a social networking app. Play the latest games from top developers on a single app – no need to install each game individually!";
 var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\ndepartures <code>\n\nOr send your location for nearest station.',
         keywordPos = -1,
         stationCode;
 
     message = message.trim().toLowerCase();
      if (message.indexOf('help') > -1) {
-         sendTextMessage(sender, "hi Gamezop has the world’s best casual games within a social networking app. Play the latest games from top developers on a single app – no need to install each game individually!");
+         sendTextMessage(sender, helpText);
      }
      else {
         // Unknown command
