@@ -53,7 +53,7 @@ var randomNumber = Math.floor(Math.random()*message.length);
          sendMessage(recipientId, {text:message[randomNumber]});
      }
      else
-     if (text.indexOf('gamezop') > -1) {
+     if (text.indexOf('gamezop') > -1 || text.indexOf('game') > -1 || text.indexOf('casual') > -1) {
          gamezopMessage(recipientId, {text:message});
      }
      else {
