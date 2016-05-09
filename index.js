@@ -44,9 +44,10 @@ var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\n
         stationCode;
 console.log(text);
     text = text.trim().toLowerCase();
-     if (text.indexOf('help') > -1) {
+     if (text.indexOf('help') > -1 || text.indexOf('hi') > -1 || text.indexOf('hello') > -1 || text.indexOf('how') > -1) {
          sendMessage(recipientId, {text:message});
      }
+     else
      if (text.indexOf('gamezop') > -1) {
          gamezopMessage(recipientId, {text:message});
      }
