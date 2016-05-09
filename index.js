@@ -42,7 +42,7 @@ function processMessage(recipientId,text)
 var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\ndepartures <code>\n\nOr send your location for nearest station.',
         keywordPos = -1,
         stationCode;
-l console.log(text);
+console.log(text);
     text = text.trim().toLowerCase();
      if (text.indexOf('help') > -1) {
          sendMessage(recipientId, helpText);
