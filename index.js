@@ -47,6 +47,9 @@ console.log(text);
      if (text.indexOf('help') > -1) {
          sendMessage(recipientId, {text:message});
      }
+     if (text.indexOf('gamezop') > -1) {
+         gamezopMessage(recipientId, {text:message});
+     }
      else {
         // Unknown command
         console.log(respText);
@@ -54,6 +57,39 @@ console.log(text);
     }
 
 }
+function gamezopMessage(recipientId,text)
+{
+  text = text || "";
+    var values = text.split(' ');
+    var imageUrl="http://www.nextbigwhat.com/wp-content/uploads/2016/02/gamezop.jpg"
+     var linkUrl="https://play.google.com/store/apps/details?id=co.gamezop&hl=en";
+      message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "Gamezop",
+                            "subtitle": "Best Casual Games",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": linkUrl,
+                                "title": "Download App"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this",
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }]
+                        }]
+                    }
+                }
+            };
+              sendMessage(recipientId, message);
+            
+            return true;
+}
+
 // generic function sending messages
 function sendMessage(recipientId, message) {
     request({
