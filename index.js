@@ -59,8 +59,7 @@ console.log(text);
 }
 function gamezopMessage(recipientId,text)
 {
-  text = text || "";
-    var values = text.split(' ');
+
     var imageUrl="http://www.nextbigwhat.com/wp-content/uploads/2016/02/gamezop.jpg"
      var linkUrl="https://play.google.com/store/apps/details?id=co.gamezop&hl=en";
       message = {
