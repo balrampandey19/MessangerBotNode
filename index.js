@@ -45,12 +45,12 @@ var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\n
 
     message = message.trim().toLowerCase();
      if (message.indexOf('help') > -1) {
-         sendTextMessage(sender, helpText);
+         sendMessage(sender, helpText);
      }
      else {
         // Unknown command
         console.log(respText);
-        sendTextMessage(recipientId, respText);
+        sendMessage(recipientId, respText);
     }
 
 }
