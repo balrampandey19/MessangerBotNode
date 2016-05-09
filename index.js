@@ -28,7 +28,7 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
             if (!kittenMessage(event.sender.id, event.message.text)) {
-                sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+                processMessage(event.sender.id, {text: "Echo: " + event.message.text});
             }
         } else if (event.postback) {
             console.log("Postback received: " + JSON.stringify(event.postback));
@@ -36,7 +36,23 @@ app.post('/webhook', function (req, res) {
     }
     res.sendStatus(200);
 });
+function processMessage(senderId,text)
+{
+var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\ndepartures <code>\n\nOr send your location for nearest station.',
+        keywordPos = -1,
+        stationCode;
 
+    text = text.trim().toLowerCase();
+     if (text.indexOf('help') > -1) {
+         sendTextMessage(sender, "hi Gamezop has the world’s best casual games within a social networking app. Play the latest games from top developers on a single app – no need to install each game individually!");
+     }
+     else {
+        // Unknown command
+        console.log(respText);
+        sendTextMessage(sender, respText);
+    }
+
+}
 // generic function sending messages
 function sendMessage(recipientId, message) {
     request({
