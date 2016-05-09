@@ -43,7 +43,7 @@ function processMessage(recipientId,text)
     'Stop installing every game you want to try, and get right to experiencing them in one app – instantly! Just click and play – also get an in-built cache cleaner to save space',
 'Share favorite games with friends on WhatsApp, Facebook, Messenger, or Skype. Your friends can play messenger games without downloading Gamezop.'
 ];
-var respText = 'Sorry I don\'t understand. Try:\n\nstatus\nelevators\nstations\ndepartures <code>\n\nOr send your location for nearest station.',
+var respText = 'Sorry I don\'t understand. Try:\n\nGamez\nGamezop\nRecommended\n\n.',
         keywordPos = -1,
         stationCode;
 console.log(text);
