@@ -38,7 +38,6 @@ app.post('/webhook', function (req, res) {
 });
 function processMessage(recipientId,text)
 {
-    console.log("recipientId"+recipientId);
 
     
     var message = [
@@ -50,6 +49,8 @@ var respText = 'Sorry I don\'t understand. Try:\n\nGamez\nGamezop\nRecommended\n
         keywordPos = -1,
         stationCode;
 console.log(text);
+    console.log("recipientId"+recipientId);
+
 var randomNumber = Math.floor(Math.random()*message.length);
     text = text.trim().toLowerCase();
      if (text.indexOf('help') > -1 || text.indexOf('hi') > -1 || text.indexOf('hello') > -1 || text.indexOf('how') > -1) {
