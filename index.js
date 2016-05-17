@@ -38,6 +38,9 @@ app.post('/webhook', function (req, res) {
 });
 function processMessage(recipientId,text)
 {
+    console.log(recipientId);
+
+    
     var message = [
     'hi Gamezop has the world’s best casual games within a social networking app. Play the latest games from top developers on a single app – no need to install each game individually!',
     'Stop installing every game you want to try, and get right to experiencing them in one app – instantly! Just click and play – also get an in-built cache cleaner to save space',
@@ -266,7 +269,6 @@ function kittenMessage(recipientId, text) {
             return true;
         }
     }
-    
     return false;
     
 };
