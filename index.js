@@ -38,7 +38,7 @@ app.post('/webhook', function (req, res) {
 });
 function processMessage(recipientId,text)
 {
-    console.log(recipientId);
+    console.log("recipientId"+recipientId);
 
     
     var message = [
